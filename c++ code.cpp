@@ -12,33 +12,36 @@ bool   quant;
 
 bool quantity() {
 
-	for (int q = 0; q == q;) {
-
-			cin >> q;
-			switch (q) {
-			case 1:
-				return true; break;   // for weight decision //
-			case 2:
-				return false; break;  // for volume decision //
-			default:
-				cout << "\t \" wrong value: Enter value between range \" " << endl;
-			}
+	while (true) {
+		int q = 0;
+		cin >> q;
+		switch (q) {
+		case 1:
+			return true; break;   // for weight decision //
+		case 2:
+			return false; break;  // for volume decision //
+		default:
+			cout << "\t \" wrong value: Enter value between range \" " << endl;
 		}
+	}
 }
 
 void getInput() {
-	
-	float ii;
-	int i;
-	for (i = 0; i == i;) {
+
+	for (int i = 1; i > 0 && i < 13; i++) // remove values and set them as default //
+	{
+		ffr[i] = 0;
+	}
+	float NumOfFuel;
+	int IndexTurn;
+	while (true) {
 
 		// get values from user
-		cin >> ii;
-		i = ii;
-
-		if (i >= 1 && i <= 12 && fmod((ii * 2), 2) == 0) // decimal number NOT ALLOWED
-			cout << "  " << fuel_[i - 1] << " : ", cin >> ffr[i - 1], cout << endl;
-		else if (ii == 0)
+		cin >> NumOfFuel;
+		IndexTurn = NumOfFuel;
+		if (fmod((NumOfFuel * 2), 2) == 0 && NumOfFuel >= 1 && NumOfFuel <= 12) // decimal number NOT ALLOWED
+			cout << "  " << fuel_[IndexTurn - 1] << " : ", cin >> ffr[IndexTurn - 1], cout << endl;
+		else if (NumOfFuel == 0) // END Setting Values
 			break;
 		else
 			cout << "\t \" wrong value: Enter value between range \" " << endl;
@@ -95,5 +98,5 @@ int main()
 	calculate();
 	displayOutput();
 
-	return 0;
+	return main();
 }
